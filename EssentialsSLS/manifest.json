@@ -1,0 +1,22 @@
+{
+    "Group": "Astatine",
+    "Name": "EssentialsSLS",
+    "Version": "0.0.3",
+    "Description": "Plugin de gerenciamento Astatine",
+    "Authors": [
+        {
+            "Name": "Sílvio Luiz da Silva"
+        }
+    ],
+    "Website": "astatine.com.br",
+    "ServerVersion": "2026.02.26-7681d338c",
+    "Dependencies": {
+        
+    },
+    "OptionalDependencies": {
+        
+    },
+    "DisabledByDefault": false,
+    "Main": "br.com.astatine.essentialsSLS.EssentialsSLS",
+    "IncludesAssetPack": true
+}
