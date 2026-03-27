@@ -1,0 +1,6 @@
+
+2026-03-20 	Adicionado comentários no código
+			Adicionado cores no console
+			Adicionado Prefixo no console
+
+2026-03-19	Snapshot do GreaterPlugin

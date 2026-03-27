@@ -1,0 +1,20 @@
+{
+    "Group": "SLS",
+    "Name": "GreeterPlugin",
+    "Version": "0.0.2",
+    "Description": "Um plugin que cumprimenta",
+    "Authors": [
+        {
+            "Name": "Sílvio Luiz da Silva",
+            "Email": "falecom@silvioluizsilva.net.br",
+            "Url": "https://silvioluizsilva.net.br"
+        }
+    ],
+    "Website": "https://silvioluizsilva.net.br",
+    "DisabledByDefault": false,
+    "IncludesAssetPack": false,
+    "Dependencies": {},
+    "OptionalDependencies": {},
+    "ServerVersion": "2026.03.20-db226053c",
+    "Main": "br.net.silvioluizsilva.greeterplugin.GreeterPlugin"
+}
