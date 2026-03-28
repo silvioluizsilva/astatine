@@ -6,9 +6,12 @@ import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.core.util.Config;
 
-import br.com.silvioluizsilva.greeterplugin.commands.GreetCommand;
+import br.net.silvioluizsilva.greeter.config.JsonConfigManager;
+import br.net.silvioluizsilva.greeter.database.MySQLManager;
+import br.net.silvioluizsilva.greeterplugin.commands.GreetCommand;
 import br.net.silvioluizsilva.greeterplugin.util.ConsoleColor;
 
+import java.io.File;
 import java.util.logging.Level;
 import javax.annotation.Nonnull;
 
@@ -23,6 +26,9 @@ public class GreeterPlugin extends JavaPlugin {
 	public static GreeterPlugin getInstance() {
         return instance;
     }
+	
+	// Conexão com o banco de dados
+	private MySQLManager mysql;
 
 	// Você está criando um gerenciador de configuração tipado
 	private final Config<GreeterConfig> config;
@@ -68,6 +74,28 @@ public class GreeterPlugin extends JavaPlugin {
     			ConsoleColor.BLUE +
     			"Inicialização do GreeterPlugin está completa! [01]" +
     			ConsoleColor.RESET);
+    	
+    	// Verifica se o arquivo existe, e se não existir ele cria
+    	// File configFile = new File(getDataDirectory().toFile(),"config/greeter.json");
+    	// JsonConfigManager.createDefaultConfig(configFile);
+    	
+    	// Verifica se o arquivo e o diretório existe, e se não existir ele cria
+    	File folder = getDataDirectory().toFile();
+    	if (!folder.exists()) {
+    		folder.mkdirs();
+    	}
+    	File configFile = new File(folder, "config/greeter.json");
+    	JsonConfigManager.createDefaultConfig(configFile);
+    	
+    	// Envia para o banco de dados as informações
+    	mysql = new MySQLManager(
+    			 "212.85.3.230",
+    			 3306,
+    			 "jdbc:mysql://212.85.3.230:3306/u285590045_dev_plugin?useSSL=false",
+    			 "u285590045_Hytale",
+    			 "Hytale@2026"
+    			);
+    	mysql.connect();
     }
 
     @Override
@@ -88,6 +116,7 @@ public class GreeterPlugin extends JavaPlugin {
         getLogger().at(Level.INFO).log("GreeterPlugin finalizado com sucesso! [05]");
         // Limpa a instância para evitar vazamentos de memória
         instance = null;
+        mysql.disconnect();
     }
 
     @Nonnull

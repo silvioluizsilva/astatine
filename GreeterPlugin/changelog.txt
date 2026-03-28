@@ -1,3 +1,4 @@
+2026-03-28	Adicionado a criação automática do arquivo de configuração
 
 2026-03-20 	Adicionado comentários no código
 			Adicionado cores no console
